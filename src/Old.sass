@@ -1,0 +1,138 @@
+
+%column-style
+  display: flex
+  align-items: center
+  min-height: 40px
+  border-bottom: 2px solid $ui-border-color
+  padding: 9px 10px
+  cursor: pointer
+
+%column-header-style
+  color: #ffffff8c
+  padding: 3px 23px
+
+.node-table
+  display: grid
+  grid-template-columns: auto auto 1fr 1fr 1fr 1fr
+  position: relative
+  &_text
+    @extend %column-style
+    -moz-user-select: none
+    -webkit-user-select: none
+    -ms-user-select: none
+    max-width: 60vw
+    text-overflow: ellipsis
+    &-header
+      @extend %column-style
+      @extend %column-header-style
+  &_numbers
+    @extend %column-style
+    justify-content: flex-end
+    &-header
+      @extend %column-style
+      @extend %column-header-style
+  &_icons
+    display: flex
+    align-items: stretch
+    margin-left: 10px
+    &_placeholder
+      border-bottom: 2px solid $ui-border-color
+      flex-grow: 1
+    &_remove
+      display: flex
+      position: absolute
+      align-items: center
+      height: 100%
+      transform: translate(30px)
+    &_liner
+      display: flex
+      position: relative
+      align-items: center
+      justify-content: center
+      border-bottom: 2px solid $ui-border-color
+  &-loading
+    display: flex
+    -moz-user-select: none
+    -webkit-user-select: none
+    -ms-user-select: none
+    align-items: center
+    justify-content: center
+    position: absolute
+    background-color: #000000a6
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+
+$line-width: 1px
+
+.liner
+  &_wrapper
+    display: flex
+    position: relative
+    align-items: stretch
+    justify-content: center
+  &_line
+    position: releative
+    width: 100%
+    border-bottom: 2px solid $ui-border-color
+  &_middle
+    position: absolute
+    width: $line-width
+    height: 100%
+    background-color: $maincolor
+    left: 50%
+  &_cross
+    position: absolute
+    height: $line-width
+    width: 50%
+    background-color: $maincolor
+    left: 50%
+    top: 50%
+  &_end
+    position: absolute
+    height: $line-width
+    width: 50%
+    background-color: $maincolor
+    left: 50%
+    top: 50%
+  &_top
+    position: absolute
+    width: $line-width
+    height: 50%
+    background-color: $maincolor
+    left: 50%
+    top: 0
+
+%inputs-format
+  display: flex
+  align-items: center
+  height: 100%
+
+%inputs-input
+  font-family: inherit
+  font-size: 1em
+  -webkit-appearance: none
+  appearance: none
+  color: $maincolor
+  background: transparent
+  border: 1px solid $ui-border-color-edit
+  border-radius: 5px
+  box-sizing: border-box
+  outline: none
+  height: 100%
+  width: 100%
+
+.inputs
+  &-number
+    &_format
+      @extend %inputs-format
+      justify-content: flex-end
+    &_input
+      @extend %inputs-input
+      text-align: right
+  &-text
+    &_format
+      @extend %inputs-format
+    &_input
+      @extend %inputs-input

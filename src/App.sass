@@ -1,0 +1,165 @@
+@import reset
+$font: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif
+$bcolor: #242424
+$ui-color: #27272a
+$ui-border-color: #343437
+$ui-color-debug: #27272ae6
+$ui-border-color-edit: #efefef5c
+$ui-border-size: 2px
+$maincolor: rgba(255, 255, 255, 0.87)
+@import static
+// @import Old
+
+$activecolor: white
+$unactivecolor: #ffffff8c
+$column-padding: 3px 12px 3px 23px
+$line-width: 1px
+$line-width: 1px
+
+%mouse-disable
+  -moz-user-select: none
+  -webkit-user-select: none
+  -ms-user-select: none
+
+%fullscreen-layer
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+
+%cflex
+  display: flex
+  align-items: center
+  justify-content: center
+
+%column
+  @extend %mouse-disable
+
+%bottom-border
+  border-bottom: 2px solid $ui-border-color
+
+%input
+  background: none
+  font-size: 1em
+  outline: none
+  color: $maincolor
+  border: 2px solid $ui-border-color
+  border-radius: 5px
+  width: 100%
+  padding: 8px 5px 8px 5px
+
+%input-reset
+  -webkit-appearance: none
+  -moz-appearance: textfield
+  margin: 0
+  background: none
+
+$focus-color: white
+
+.text-wrap
+  // text-overflow: ellipsis
+  // white-space: nowrap
+
+.node-table
+  display: grid
+  grid-template-columns: auto 6fr 1fr 1fr 1fr 1fr
+  position: relative
+  &-loading
+    @extend %cflex
+    @extend %fullscreen-layer
+    z-index: 100
+    background-color: #000000a6
+  .column
+    @extend %column
+    @extend  %bottom-border
+    padding-left: 5px
+    padding-top: 8px
+    padding-bottom: 8px
+    min-height: 60px
+    cursor: pointer
+    &.text
+      @extend %cflex
+      justify-content: flex-start
+      input
+        @extend %input
+        &:focus
+          border-color: $maincolor
+    &.number
+      @extend %cflex
+      justify-content: flex-end
+      text-align: end
+      padding-right: 8px
+      input
+        @extend %input
+        text-align: end
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button
+          -webkit-appearance: none
+          -moz-appearance: textfield
+          margin: 0
+        &:focus
+          border-color: $maincolor
+    .wrapper
+      width: 100%
+  .header
+    @extend %column
+    color: $unactivecolor
+    padding: 3px 12px 3px 23px
+    @extend %bottom-border
+    &.tr
+      text-align: end
+  .icons
+    display: flex
+    align-items: stretch
+    margin-left: 10px
+    .remove
+      display: flex
+      position: absolute
+      align-items: center
+      height: 100%
+      transform: translate(30px)
+    .placeholder
+      @extend  %bottom-border
+      flex-grow: 1
+      padding-right: 10px
+    .icon
+      @extend %cflex
+      @extend  %bottom-border
+      position: relative
+  .liner
+    display: flex
+    position: relative
+    align-items: stretch
+    justify-content: center
+    .line
+      position: releative
+      width: 100%
+      @extend  %bottom-border
+    .middle
+      position: absolute
+      width: $line-width
+      height: 100%
+      background-color: $maincolor
+      left: 50%
+    .cross
+      position: absolute
+      height: $line-width
+      width: 50%
+      background-color: $maincolor
+      left: 50%
+      top: 50%
+    .end
+      position: absolute
+      height: $line-width
+      width: 50%
+      background-color: $maincolor
+      left: 50%
+      top: 50%
+    .top
+      position: absolute
+      width: $line-width
+      height: 50%
+      background-color: $maincolor
+      left: 50%
+      top: 0

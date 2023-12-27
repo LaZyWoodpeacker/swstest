@@ -1,0 +1,88 @@
+body
+  line-height: 1.5
+  font-weight: 400
+  font-family: $font
+  color: $maincolor
+  background-color: $bcolor
+
+#root
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+
+.app-bar
+  min-height: 40px
+  background-color: $ui-color
+  display: flex
+  border-bottom: $ui-border-size solid $ui-border-color
+  width: 100%
+  &-icons
+    display: flex
+    &_icon
+      width: 20px
+      margin: 0 12px
+      cursor: pointer
+  &-menu
+    margin-left: 10px
+    display: flex
+    height: 100%
+    align-items: center
+    justify-content: center
+    list-style-type: none
+    &_button
+      padding: 2px 12px
+      cursor: pointer
+      &__active
+        border-bottom: 2px solid $maincolor
+
+.drawer
+  min-width: 240px
+  background-color: $ui-color
+  border-right: $ui-border-size solid $ui-border-color
+  &-header
+    border-bottom: 2px solid $ui-border-color
+    display: flex
+    padding-left: 14px
+    align-items: center
+    justify-content: space-between
+    min-height: 46px
+    &_title
+      color: #92929a
+      font-size: 14px
+      padding-top: 5px
+      font-weight: 300
+      line-height: 0.8
+    &_subtitle
+      color: #92929a
+      font-size: 10px
+    &_icon
+      width: 28px
+      margin-right: 6px
+      transform: rotate(-90deg)
+  &-list
+    &_item
+      display: flex
+      font-size: 15px
+      align-items: center
+      padding: 5px 14px
+      &__active
+        background-color: #a1a1aa
+    &_icon
+      width: 23px
+      margin-right: 14px
+
+.top-row
+  background-color: $ui-color
+  min-height: 46px
+  border-bottom: 2px solid $ui-border-color
+  display: flex
+  align-items: center
+  width: 100%
+  &_title
+    padding-top: 9px
+    height: 100%
+    font-size: 17px
+    padding-left: 17px
+    padding-right: 17px
+    letter-spacing: 1px
+    border-right: 2px solid $ui-border-color
